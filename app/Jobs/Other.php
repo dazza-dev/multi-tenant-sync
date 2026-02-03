@@ -43,7 +43,7 @@ class Other implements ShouldQueue
         }
 
         // My Custom Job
-        //\Log::debug('My Custom Job');
+        // \Log::debug('My Custom Job');
 
         return 'Your Response';
     }

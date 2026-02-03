@@ -16,6 +16,7 @@ class TenantDatabaseMiddleware
     public function handle(object $job, Closure $next): void
     {
         // Set Database Connection
+        $this->disconnectDatabase($job);
         $this->setDatabaseConnection($job);
 
         $logInfo = $this->prepareLogInfo($job);
@@ -49,7 +50,7 @@ class TenantDatabaseMiddleware
 
     private function setDatabaseConnection(object $job): void
     {
-        clearDatabaseConn('tenant', $job->hash);
+        // clearDatabaseConn('tenant', $job->hash);
         setDatabaseConn('tenant', $job->database, $job->hash);
     }
 
